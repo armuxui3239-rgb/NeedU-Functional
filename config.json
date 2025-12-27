@@ -1,0 +1,149 @@
+{
+  "app": {
+    "name": "NeedU",
+    "version": "1.0.0",
+    "environment": "development",
+    "debug": true
+  },
+  "api": {
+    "baseUrl": "https://api.needu.example.com",
+    "endpoints": {
+      "auth": {
+        "login": "/v1/auth/login",
+        "logout": "/v1/auth/logout",
+        "register": "/v1/auth/register",
+        "refreshToken": "/v1/auth/refresh-token",
+        "resetPassword": "/v1/auth/reset-password"
+      },
+      "users": {
+        "profile": "/v1/users/profile",
+        "updateProfile": "/v1/users/profile/update",
+        "getUser": "/v1/users/{userId}",
+        "listUsers": "/v1/users"
+      },
+      "services": {
+        "list": "/v1/services",
+        "create": "/v1/services",
+        "getService": "/v1/services/{serviceId}",
+        "updateService": "/v1/services/{serviceId}",
+        "deleteService": "/v1/services/{serviceId}"
+      },
+      "requests": {
+        "create": "/v1/requests",
+        "getRequest": "/v1/requests/{requestId}",
+        "listRequests": "/v1/requests",
+        "updateRequest": "/v1/requests/{requestId}",
+        "cancelRequest": "/v1/requests/{requestId}/cancel"
+      },
+      "payments": {
+        "processPayment": "/v1/payments/process",
+        "getPaymentHistory": "/v1/payments/history",
+        "getPaymentStatus": "/v1/payments/{paymentId}"
+      }
+    },
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000
+  },
+  "appSettings": {
+    "maxUploadSize": 52428800,
+    "allowedImageFormats": ["jpg", "jpeg", "png", "gif"],
+    "sessionTimeout": 3600000,
+    "tokenExpiry": 86400000,
+    "refreshTokenExpiry": 604800000,
+    "maxRequestsPerMinute": 60,
+    "maxConcurrentRequests": 10
+  },
+  "featureFlags": {
+    "enableUserRegistration": true,
+    "enableSocialAuth": false,
+    "enablePayments": true,
+    "enableServiceRatings": true,
+    "enableServiceReviews": true,
+    "enableNotifications": true,
+    "enablePushNotifications": false,
+    "enableEmailNotifications": true,
+    "enableSMSNotifications": false,
+    "enableAdvancedFilters": false,
+    "enableAIRecommendations": false,
+    "enableBetaFeatures": false,
+    "enableAnalytics": true,
+    "enableMaintenanceMode": false,
+    "enableUserMessaging": true,
+    "enableScheduledRequests": false,
+    "enableRecurringServices": false,
+    "enableMultiLanguageSupport": false
+  },
+  "security": {
+    "enableSSL": true,
+    "enableCORS": true,
+    "corsOrigins": ["https://needu.example.com", "https://app.needu.example.com"],
+    "enableRateLimiting": true,
+    "enableInputValidation": true,
+    "enableDataEncryption": true,
+    "passwordMinLength": 8,
+    "passwordRequireUppercase": true,
+    "passwordRequireNumbers": true,
+    "passwordRequireSpecialChars": true,
+    "jwtSecret": "your-secret-key-change-in-production",
+    "refreshTokenSecret": "your-refresh-secret-key-change-in-production"
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "provider": "sendgrid",
+      "from": "noreply@needu.example.com",
+      "supportEmail": "support@needu.example.com"
+    },
+    "sms": {
+      "enabled": false,
+      "provider": "twilio"
+    },
+    "push": {
+      "enabled": false,
+      "provider": "firebase"
+    }
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "needu_db",
+    "user": "db_user",
+    "connectionTimeout": 5000,
+    "maxPoolSize": 20,
+    "enableSSL": false
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "enableConsoleLogging": true,
+    "enableFileLogging": true,
+    "logFilePath": "./logs",
+    "maxLogFileSize": 10485760,
+    "maxLogFiles": 10
+  },
+  "cache": {
+    "enabled": true,
+    "provider": "redis",
+    "host": "localhost",
+    "port": 6379,
+    "ttl": 3600,
+    "maxSize": 104857600
+  },
+  "thirdParty": {
+    "googleMaps": {
+      "enabled": true,
+      "apiKey": "your-google-maps-api-key"
+    },
+    "stripe": {
+      "enabled": true,
+      "publicKey": "your-stripe-public-key",
+      "secretKey": "your-stripe-secret-key"
+    },
+    "analytics": {
+      "enabled": true,
+      "provider": "google",
+      "trackingId": "your-tracking-id"
+    }
+  }
+}
